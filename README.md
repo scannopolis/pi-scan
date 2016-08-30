@@ -1,171 +1,176 @@
-# Pi Scan Overview
+# Resumen de Pi Scan
 
-Pi Scan is a simple and robust camera controller for book scanners. It was designed to work with the [Archivist book scanner](http://diybookscanner.org/archivist). For questions or help, visit the [forum](http://diybookscanner.org/forum) or email help at tenrec dot builders.
+Pi Scan es un controlador de cámaras de fotos robusto y simple, diseñado especialmente para los escáneres de libros. Fue creado para trabajar con el escáner de libros Archivista(http://diybookscanner.org/archivist). Para preguntas o ayuda, visite el foro(http://diybookscanner.org/forum) o envíe un correo solicitando ayuda a help [at] tenrec [punto] builders.
 
-# Requirements
+# Requerimientos
 
-* Raspberry Pi 2 or Raspberry Pi 3
-* Two cameras (Canon PowerShot A2500 or Canon PowerShot ELPH 160 (aka IXUS 160))
-* Three 4GB SD Cards (2 for cameras, 1 for Pi). One needs to be micro (for the Pi). The other two need to be standard sized or have adapters.
-* USB Storage device (either an SD Card Reader and fast SD Card or a thumb drive)
-* Input Devices (see below
+* Raspberry Pi 2 o Raspberry Pi 3
+* Dos cámaras(Canon PowerShot A2500 o Canon PowerShot ELPH 160 (también conocida como IXUS 160))
+* Tres tarjetas SD de 4GB (2 para las cámaras, 1 para la Raspberry Pi). Es necesario que una de las tarjetas sea micro SD (para la Raspberry Pi). Las otras dos pueden ser de tamaño estándar, o tener adaptadores en caso de que sean micro.
+* Un dispositivo de almacenamiento USB (puede ser un lector de tarjetas SD y una tarjeta SD veloz, o un pendrive)
+* Dispositivos de entrada (ver más abajo)
 
-# Input Device Options
+# Opciones de dispositivos de entrada
 
-If at all possible, avoid using a USB hub. A significant chunk of issues that users have reported ended up being caused by some issue with a USB hub that was resolved when plugging devices into the Raspberry Pi directly.
+En la medida de lo posible, hay que evitar utilizar un hub USB. Un porcentaje significativo de errores que los usuarios reportaron, eran causados por algún problema con el hub USB que se resolvieron enchufando los dispositivos directamente a la Raspberry Pi.
 
-One known issue is that USB input devices only work if they are plugged in before Pi Scan starts. If you plug them in later on or if they get unplugged, then you will have to restart Pi Scan to get them to work.
+Un error conocido es que los dispositivos USB sólo funcionan si están enchufados a la Raspberry Pi previamente al encendido de la Pi. Si se enchufan luego del encendido o si se desenchufan, entonces será necesario reiniciar Pi Scan para que funcionen.
 
 ## Mouse
 
-Pi Scan can be controlled entirely via a mouse and HDMI screen. This option is incompatible with touch but works with all other kinds of input. If you intend to use a mouse, download the mouse-compatible image of Pi Scan below.
+El Pi Scan puede ser controlado enteramente a través de un mouse y una pantalla con entrada HDMI (o en su defecto, con un adaptador HDMI-VGA). Este tipo de opción es incompatible con la opción táctil, pero funciona con todo otro tipo de dispositivos de ingreso de datos. Si la intención es utilizar el Pi Scan con un mouse, hay que descargarse la imagen de Pi Scan compatible con mouse que se encuentra más abajo.
 
-## Touch Screen
+## Pantalla táctil
 
-Pi Scan works with the official Raspberry Pi touch screen. This provides a more compact and self-contained scanner appliance. The touch option is incompatible with mouse input. If you want to use a touch screen, download the touchscreen-compatible image of Pi Scan.
+Pi Scan trabaja con la pantalla táctil oficial de Raspberry Pi. Esto provee un escáner de libros más compacto y autónomo. La opción táctil es incompatible con el mouse. Si se desea utiliza la pantalla táctil, hay que descargarse la imagen de Pi Scan compatible con la pantalla táctil.
 
-## Keyboard
+## Teclado
 
-Pi Scan can now be controlled entirely via a keyboard. Every button has a hotkey shown, usually a number. The keyboard works with both the touch screen and mouse versions of Pi Scan. To navigate previews with a keyboard, use '+', '-', and '0' to set the zoom level and move the viewport with WASD or the arrow keys. When scanning, use the space bar, 'b' or 'c' to capture.
+Pi Scan ahora puede ser controlado enteramente a través de un teclado. Cada botón de la pantalla muestra la tecla a la que responde, generalmente un número. El teclado funciona tanto con la versión táctil como la versión mouse de Pi Scan. Para navegar a través de las vistas con un teclado, hay que utilizar las teclas '+', '-', y '0' para configurar el nivel de zoom y mover la ventana con la combinación WASD o con las teclas de flecha. Cuando se digitaliza, para hacer la captura se pueden utilizar la barra espaciadora o las letras 'b' o 'c'.
 
-## USB Foot Pedal
+## Pedal USB
 
-Most cheap USB foot pedals emulate a keyboard and send the 'b' key by default. Because the 'b' key is a hot key for capture, USB foot pedals can be used to trigger page capture.
+La mayoría de los pedales USB de pie emulan un teclado y envían la tecla 'b' por defecto. Dado que la tecla 'b' es una combinación de tecla para captura, los pedales USB de pie pueden ser utilizados para disparar la captura de páginas.
 
-## Industrial Foot Pedal
+## Pedal de pie industrial
 
-Industrial foot pedals are more robust than equivalently priced USB foot pedals. But they don't have the electronics to deal with the USB protocol. They can be wired up to two pins on the Raspberry Pi and Pi Scan will treat any connection between those pins as a trigger for capture when scanning. Note that this will only capture images on the scanning screen, not when setting focus, zoom level, or shutter speed. For details, refer to the Archivist Quill [assembly manual](http://tenrec.builders/quill/guide/electronics/pedal/).
+Los pedales de pie industriales son más robustos que los pedales USB de pie equivalentes en precio. Pero no tienen la electrónica que se necesita para lidiar con los protocolos USB. Se pueden conectar hasta dos pines en la Raspberry Pi, y Pi Scan tratará cualquier conexión entre esos pines como un disparador para la captura durante la digitalización. Nótese que esto sólo capturará imágenes en la pantalla de digitalización, y no sirve para configurar foco, nivel de zoom, o tiempo de exposición. Para más detalles, véase el [manual de ensamblado] del Archivista Pluma (http://tenrec.builders/quill/guide/electronics/pedal/).
 
-## Buttons and Microswitches
+## Botones y microinterruptores
 
-Any electrical connection between the GPIO21 and GND pins on the Raspberry Pi will cause a capture when scanning. So any button or microswitch can work as a scanning trigger if it is wired up properly.
+Cualquier conexión eléctrica entre el GPIO21 y los pines GND en la Raspberry Pi causará una captura (disparo) mientras se digitaliza. Por lo tanto, cualquier botón o microinterruptor puede servir como un gatillo de digitalización si está conectado correctamente.
 
-# Updating
+# Actualizando el software de Pi Scan
 
-If you are using version Pi Scan 0.8 or later, you may be able to update your installation without downloading the whole image and re-imaging your SD card. Download an update file linked below, copy it to your external storage (in the root folder, not in the 'images' or 'debug' folders), and boot up Pi Scan. Tap 'Begin Scan'. Then when the external storage is loaded, you should see an 'Upgrade' button on the top right. Tap that and updating should take just a few seconds.
+A partir de la versión Pi Scan 0.8 o posteriores, es posible actualizar la instalación sin necesidad de descargar toda la imagen y re-grabándola sobre la tarjeta SD. Solo es necesario descargar el archivo de 'update' linkeado más abajo, copiarlo al dispositivo de almacenamiento externo (en la carpeta de root, no en las carpetas de 'images' o 'debug'), e iniciar el arranque de Pi Scan. Tocar 'Begin Scan'. Una vez que el dispositivo de almacenamiento externo cargó, debería verse un botón con la palabra 'Upgrade', en la parte superior derecha. Hay que tocar ese botón. La actualización debería tomar unos segundos. 
 
-If the above process does not work, then download a full image below and install it instead.
+Si el proceso mencionado arriba no funciona, hay que descargar la imagen de más abajo y reinstalarla en la tarjeta.
 
-* [Update to Pi Scan 1.0](http://tenrec.builders/pi-scan/1.0/pi-scan-update-1.0.archive)
+* [Actualización a Pi Scan 1.0](http://tenrec.builders/pi-scan/1.0/pi-scan-update-1.0.archive)
 
-# Download
+# Descarga
 
-Both Raspberry Pi 2 and Raspberry Pi 3 are supported. There are two variants. One version supports mouse input and any HDMI screen. The other version supports the official Raspberry Pi touch screen:
+Tanto la Raspberry Pi 2 como la Raspberry Pi 3 son compatibles con Pi Scan. Hay dos variantes. Una versión es compatible con el mouse y cualquier pantalla HDMI. La otra versión es compatible con la pantalla táctil oficial de Raspberry Pi:
 
-* [Raspberry Pi Image (for mouse)](http://tenrec.builders/pi-scan/latest/pi-scan-latest-mouse.zip)
-* [Raspberry Pi Image (for touchscreen)](http://tenrec.builders/pi-scan/latest/pi-scan-latest-touch.zip)
+* [Imagen de Raspberry Pi (para mouse)](http://tenrec.builders/pi-scan/latest/pi-scan-latest-mouse.zip)
+* [Imagen de Raspberry Pi (para pantalla táctil)](http://tenrec.builders/pi-scan/latest/pi-scan-latest-touch.zip)
 
-Two models of cameras are supported. Download the appropriate image for your camera:
+Dos modelos de cámaras son compatibles. Hay que descargarse la imagen compatible con cada cámara:
 
-* [Canon PowerShot A2500 Image](http://tenrec.builders/pi-scan/latest/pi-scan-camera-a2500-latest.zip)
-* [Canon PowerShot ELPH/IXUS 160 image](http://tenrec.builders/pi-scan/latest/pi-scan-camera-elph160-latest.zip)
+* [Imagen de Canon PowerShot A2500](http://tenrec.builders/pi-scan/latest/pi-scan-camera-a2500-latest.zip)
+* [Imagen de Canon PowerShot ELPH/IXUS 160](http://tenrec.builders/pi-scan/latest/pi-scan-camera-elph160-latest.zip)
 
-Use these images at your own risk. These images may damage your camera. During early testing of the ELPH 160 image, one camera was bricked and the root cause of this problem was never definitively found. See [this link](http://chdk.setepontos.com/index.php?topic=12321.140).
+Estas imágenes se utilizan a propio riesgo del usuario. Estas imágenes pueden dañar la cámara. Durante el testeo previo de una imagen de la ELPH 160, una cámara fue dañado y la causa nunca fue encontrada definitivamente. Ver más en [este link](http://chdk.setepontos.com/index.php?topic=12321.140).
 
-Other CHDK-compatible cameras may or may not work. If you want to try it out, just install the full CHDK package for the appropriate camera and firmware you use. If it works then great. If not, then you might have to dig into the debug log, code, and CHDK forums to see why not. While I don't support other camera models myself, I am willing to accept pull requests with patches to make Pi Scan compatible with other cameras.
+Otras cámaras compatibles con CHDK pueden o no funcionar. Si se desea probar la compatibilidad de estas cámaras, lo que hay que hacer es instalar la versión full del paquete de CHDK que corresponde a la cámara y al firmware que utiliza la cámara. Si funciona, ¡genial! Si no funciona, quizás sea necesario buscar en el log de debug, en el código y en los foros de CHDK para ver por qué no funciona. Mientras que no puedo hacer que otras cámaras sean compatibles, estoy dispuesto a aceptar requerimientos con parches para hacer que el Pi Scan sea compatible con otras cámaras.
 
-# Installation
+# Instalación
 
-The software is packaged as whole disk images which need to be flashed onto SD cards of at least 4GB in size. Because nothing is stored on these images, the speed of the card doesn't matter.
+El software está empacado como una imagen completa que necesita ser instalada en la tarjeta SD, que necesita tener al menos 4GB. Como no se almacena nada en estas tarjetas, no importa la velocidad de la tarjeta.
 
-Extract the images from the archives and use an appropriate tool to write them to the cards. Do not just copy the file onto the card. This will not work and you will be sad. If you are updating the camera cards, they may be locked. Before imaging them, you must unlock them. The little switch on the left must be in the *top* position.
+Para instalar la imagen en la tarjeta, es necesario extraer la imagen del archivo y utilizar una herramienta apropiada para instalarla en la tarjeta. No hay que copiar la imagen directamente en la tarjeta. Esto no va a funcionar. 
 
-Image Writing Tutorials:
+Si se está actualizando las tarjetas de las cámaras, puede ser que las cámaras estén en posición de "lock" o cerradas. Antes de instalar nada en las tarjetas, es necesario desbloquearlas. El pequeño interruptor a la izquierda tiene que estar en la posición superior, para desbloquear la tarjeta.
+
+Tutoriales para escribir las imágenes en las tarjetas: [FALTAN LINKS EN CASTELLANO ACÁ]
 
 * [Windows](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md)
 * [Mac](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
 * [Linux](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
 
-## Writing an SD Card on Windows
+## Escribiendo una tarjeta SD en Windows
 
-You will need:
+Vas a necesitar:
 
-* Win32 Disk Imager ([link](http://sourceforge.net/projects/win32diskimager/))
-* An SD Card Reader
-* An SD Card (make sure the SD card is unlocked. The little switch on the left must be in the *top* position)
-* A disk image downloaded from a location above
-* At least 4GB of free disk space
+* El Win32 Disk Imager ([link](http://sourceforge.net/projects/win32diskimager/))
+* Un lector de tarjetas SD
+* Una tarjeta SD (hay que asegurarse que la tarjeta SD esté desbloqueada. El interruptor a la izquierda tiene que estar arriba de todo, en posición de desbloqueo).
+* Una imagen de disco descargada de algunos de los links anteriores.
+* Al menos 4GB libres de espacio en el disco.
 
-The image you downloaded starts out as a compressed ZIP file. Right-click on it and select 'Extract all...' from the menu.
+La imagen que se descarga es un archivo ZIP comprimido. Hay que hacer click derecho y seleccionar del menú la opción "Extraer todo..." y elegir un directorio o carpeta de destino para los archivos extraídos.
 
-Pick a destination folder for the extracted file.
+Luego, inserte la tarjeta SD en el lector de tarjetas.
 
-Insert SD Card into SD Card Reader.
+Ejecute el Win32 Disk Imager. Se le consultará si quiere permitirle que haga cambios, seleccione que sí.
 
-Run Win32 Disk Imager. You will be asked if you want to allow it to make changes, click yes.
+Seleccione el directorio donde está montada la tarjeta SD en el menú de "dispositivo". Seleccione "Mi PC" o "Buscador de directorios" y verifique que ese es el dispositivo correcto.
 
-Inside of Win32 Disk Imager, click the little folder and find the image file you extracted before. Select it and click OK.
+Haga click sobre el botón "Escribir". Esto borrará todo lo que haya en la tarjeta y escribirá los contenidos de la imagen al directorio donde está montada la tarjeta SD. Por lo tanto, es importante asegurarse que la información esté siendo escrita efectivamente en la tarjeta y no en otro lugar.
 
-Select the drive where the SD card is mounted in the 'device' dropdown. Open up 'My Computer' or 'File Explorer' and verify that this is the correct drive.
+## Utilizando las tarjetas SD
 
-Click the 'Write' button. This will delete everything on the card and write out the contents of the image out to the drive. So be absolutely sure you are writing to the place you think you are.
+Una vez que las imágenes están instaladas, habrá tres tarjetas SD. Una necesita ser insertada en la Raspberry Pi 2. Las otras dos tarjetas con CHDK son para las cámaras. Las tarjetas de las cámaras ahora tienen que estar en la posición de "lock", bloqueadas. El pequeño interruptor en la izquierda tiene que estar en la posición inferior.
 
-## Using SD Cards
+Cuando enciendas las cámaras, saltará una pantalla de CHDK que aparecerá brevemente. Así es cómo se sabe que el proceso de instalación tuvo éxito. Si no se ve esta pantalla en cada cámara, las tarjetas no están bloqueadas o hubo otro tipo de error durante la instalación.
 
-Once the images are installed, you will have three SD cards. One needs to be inserted into your Raspberry Pi 2. The other cards are for your cameras. The camera cards must now be locked. The little switch on the left must be in the *bottom* position.
+A veces cuando se encienden las cámaras, una pantalla aparece solicitando que se le configure la hora y la fecha y la zona horaria. Esto ocurrirá la primera vez que las cámaras se enciendan, o si han estado desconectadas y sin utilizar por mucho tiempo. Si esto sucede, hay que desconectar el cable USB de la cámara, utilizar el botón de menú de la cámara para configurar la fecha y la hora, y luego reconectarla al USB.
 
-When you turn on the cameras, a CHDK splash screen will briefly appear. This is how you know that everything went ok. If you do not see the splash screen, the cards are not locked or there was some other problem imaging the cards.
+A continuación, hay que enchufar las cámaras a la Raspberry. Insertar la tarjeta SD en la Raspberry. Conectar un monitor, un mouse y (opcional) un teclado a la Raspberry. Encender la Raspberry. Nótese que no hay ningún modo de red para este software. Funciona directamente al conectar dispositivos de entrada y salida en la Raspberry. 
 
-Sometimes when you turn on the cameras, a screen appears asking you to set the time and timezone. This will happen the first time you turn on the cameras, or if they have been unplugged for a long time. If this happens, disconnect the USB cable from the camera, use the keypad to set the date and time and dismiss these screens, then replug in the USB cable.
+# Utilización de Pi Scan
 
-Plug the cameras into the Pi. Plug the SD card reader into the Pi. Plug a monitor, mouse, and (optional) keyboard into the Pi. Turn on the Pi. Note that there is no network mode for this software. It operates by directly connecting I/O devices into the Pi.
+Para ver un resumen de cómo utilizar Pi Scan, ver el [video tutorial (en inglés)](https://vimeo.com/150385938).
 
-# Usage
+El sistema operativo de Pi Scan es completamente de lectura. Todo lo producido se salva en una tarjeta SD externa a través de un lector de tarjetas SD, o en un dispositivo de almacenamiento externo. Los logs para hacer debug, la configuración y las imágenes digitalizadas, todo termina ahí. Cada vez que se regrese a la pantalla de inicio, Pi Scan desmontará el dispositivo externo para que se pueda remover de manera segura o bien apagar la Raspberry.
 
-For an overview of how to use Pi Scan, see the [tutorial video](https://vimeo.com/150385938).
+Hay muchas configuraciones de la cámara que todavía no pueden ser configuraradas por el usuario. Estas configuraciones están fijadas en valores que asumen que el usuario está utilizando un modelo de escáner como el Archivista. 
 
-The Pi Scan operating system is completely read only. Everything is saved onto an external SD card that you can put into the SD card reader. Debug logs, configuration, and the actual scanned images all end up there. Whenever you go back to the start screen, Pi Scan will unmount the disk in the card reader so you can remove it safely or turn off the Pi.
+## Pasos para digitalizar
 
-There are many camera settings which are not yet user-configurable. These settings are set to values which assume you are using an Archivist book scanner.
+1. Encender la Raspberry Pi. Una vez que arranca, se verá la pantalla de inicio. Cuando estás en esta pantalla, Pi Scan ejecutará el disco externo para que se pueda remover. También se puede pasar al modo de consola (o de línea de comandos) utilizando el usuario 'pi' y la contraseña 'raspberry'. Para la mayoría de los usuarios, esto no será necesario.
 
-## Scanning Steps
+1. En la página de configuración de los discos, Pi Scan busca y monta el almacenamiento externo. El almacenamiento externo es utilizado para los registros de configuración y de debugeo, y es donde se guardan las imágenes. El usuario debe enchufar el dispositivo USB o el lector de tarjetas de memoria con la tarjeta de memoria. Luego de unos segundos, el dispositivo será detectado y el usuario podrá apretar el botón de "siguiente" (next). Si el dispositivo no es detectado, hay que desconectarlo y volver a conectarlo a la Raspberry. 
 
-1. Boot up the Raspberry Pi. Once the Pi itself has booted you will see the Pi Scan starting screen. When on this screen, Pi Scan will eject your external disk so you can remove it. If you need to, you can also quit to console and log in using the username 'pi' and password 'raspberry' but for most users this won't be necessary.
-1. On the disk configuration page Pi Scan searches for and mounts your external storage. The external storage is used for configuration, debugging logs, and it is where the scanned images are saved. Plug in your USB drive or SD Card Reader and SD Card. After a few seconds, your drive will be detected and you will be able to tap next. If your drive is not detected, try unplugging and replugging the device.
-1. On the camera configuration page Pi Scan searches for two cameras attached via USB to the Pi. Once it finds them, you will be able to move on to the next step or, optionally, to set a zoom level for each camera.
-1. (Optional) Zoom settings can be set for each camera individually. Tap "test shot" to capture a photo from each camera and then adjust the zoom settings in the upper left and upper right corners. Don't worry if the pages are on the wrong side for now. When you've set the zoom level you like, tap done. The zoom setting is saved to the external storage, so as long as you keep using the same card, you won't have to re-adjust these settings.
-1. (Optional) Shutter speed can be set for each camera. If your photos are consistently too underexposed or overexposed, tweak the shutter speed.
-1. In order to keep camera focus consistent, Pi Scan will auto-focus once in each session and then lock that focus for the remainder of the shots. In order to get the best focus shot, you will want to press two pages against the platen of your scanner just as if you were scanning them and then tap 'Refocus'. Make sure that these pages have lots of text since the cameras have trouble focusing on just white space. Verify on the preview that the focus is good. You will also want to verify that the 'odd' page is pointing to an odd numbered page in your book and that the 'even' page is pointing to an even numbered page. If they are not, you can tap "swap" to swap the two pages. This will ensure that the pages are interleaved properly when scanning.
-1. During scanning, press pages against the platen and tap the 'Capture' button. After hearing the shutters on the camera, you can flip to the next page while Pi Scan is processing the photos. On your first scan, you will want to verify that everything looks good. You should also check periodically as you scan, epsecially for your first few books using Pi Scan. If you notice a problem during the scan, you can recapture the last two pages with the 'Rescan' button.
-1. Once scanning is complete, tap 'Done' to return to the start screen. Here you can remove your external storage and move the files from it to your computer. If you are scanning the same book in multiple sessions, Pi Scan will continue numbering images where you left off. If you move all of the images from the external storage, it will start saving at '0000.jpg' again.
+1. En la página de configuración de la cámara, Pi Scan busca dos cámaras conectadas vía USB a la Raspberry. Una vez que las encuentra, se puede configurar el nivel de zoom, de manera opcional, o bien pasar al siguiente paso.
 
-## After Capture
+1. (Opcional). El zoom se puede configurar para cada cámara de manera individual. Para cada cámara, se debe apretar el botón de "disparo de prueba" para capturar una foto de cada cámara, y luego ajustar las configuraciones de zoom en las esquinas superiores de la izquierda y de la derecha. Por ahora, no hay que preocuparse si las páginas están en el lugar incorrecto. Una vez que se ha conseguido el nivel de zoom que mejor se ajusta al libro, se debe apretar el botón de "hecho" (done). La configuración de zoom es guardada en el dispositivo externo de almacenamiento, así que en la medida en que se continúe utilizando el mismo dispositivo externo de almacenamiento, no será necesario re-ajustar las configuraciones de zoom.
 
-Pi Scan does just one part of the overall scanning workflow: managing capture. After using Pi Scan, you will have an SD card full of consecutively named JPEG files. Turning those files into an e-book is a process called Post Processing. There are many different kinds of software that can help you do this task. A good open source option is called ScanTailor.
+1. (Opcional). El tiempo de exposición puede ser configurado para cada cámara. Si de manera persistente las fotos están sobreexpuestas o subexpuestas, hay que trabajar con el tiempo de exposición.
 
-## Troubleshooting
+1. Para asegurarse que el foco es consistente en todas las tomas, Pi Scan hará auto-foco una vez por cada sesión, y luego bloqueará ese foco para el resto de las tomas. Para obtener el mejor foco, será necesario presionar dos páginas contra la platina del escáner, tal como si se estuviera escaneando el libro, y luego apretar el botón de "reenfocar" (refocus). Se debe verificar en la vista previa (preview) que el foco es bueno. También se debe verificar que la página par del sistema está apuntando efectivamente a una página numerada par en el libro, y que la página impar del sistema está apuntando a una página impar del libro. Si no lo están, se puede apretar el botón de intercambio (swap) para cambiar las dos páginas. Esto asegurará que las páginas son intercaladas de la manera correcta durante la digitalización.
 
-In an ideal world, we wouldn't have to deal with this. In case you run into less than ideal circumstances, Pi Scan will produce error logs and messages to help you diagnose any problems you encounter. Pi Scan was designed to be robust in the presence of problems so if you do run into errors you should be able to get back to scanning with a minimum of fuss. 
+1. Durante la digitalización, se deben presionar las páginas contra la platina y apretar el botón de "captura" (capture). Luego de oír los disparos de las cámaras, se puede dar vuelta las páginas para pasar a las siguientes, mientras Pi Scan procesa las fotos. En la primera toma, es recomendable chequear que todo se ve bien. Y se debe hacer periódicamente a medida que se digitaliza. Si se nota algún problema durante la digitalización, se pueden recapturar las dos últimas páginas con el botón de "recapturar" (rescan).
 
-### Capture Failure
+1. Una vez que la digitalización está completa, se deberá apretar el botón de "Hecho" (done), que los llevará a la pantalla de inicio. Desde ahí se puede remover el dispositivo extenro de almacenamiento y mover los archivos a la computadora. Si se va a digitalizar un libro en más de una sesión, Pi Scan continuará numerando las imágenes donde se las haya dejado. Si se remueve la carpeta de 'images' del dispositivo externo de almacenamiento, Pi Scan empezará nombrando las páginas a partir del 0, es decir, como '0000.jpg'.
 
-Sometimes a camera might return an empty photograph or otherwise not capture successfully. When this happens, Pi Scan will notify you and neither camera image will be saved to disk. Tap 'Ok' on the notification and then tap 'Capture' to try again. If you notice this happening more frequently, note down the error that you see and notify help at tenrec dot builders about the issue. Occasionally, a camera might get into a bad state where every attempted capture fails. If a few captures in a row fail, try turning the camera off and on by hand.
+## Resolución de fallas y errores
+
+En un mundo ideal, no deberíamos lidiar con esto. Hay algunas formas en que las cosas pueden ir mal. Pi Scan fue diseñado para ser robusto en presencia de problemas. Cada vez que se muestra un error, el usuario debería ser capaz de retomar la digitalización con el mínimo posible de confusión. Y los registros y mensajes de error que muestra el sistema debería permitir diagnosticar cualquier problema que aparezca en el proceso.
+
+### Falla en la captura
+
+A veces una cámara puede devolver una fotografía vacía o bien no capturar una imagen exitosamente. Cuando esto sucede, Pi Scan notificará al usuario y ninguna imagen de la cámara será guardada en el disco. Se debe apretar el botón de "ok" en la notificación y luego el botón de "captura" (capture) para intentarlo nuevamente. Si se advierte que esto sucede con más frecuencia, es necesario anotar el error y notificar a help at tenrec dot builders sobre el problema. Ocasionalmente, una cámara puede entrar en un estado raro luego de varios intentos fallidos de captura. Si fallan varias capturas seguidas, lo mejor es probar apagando y volviendo a encender la cámara a mano.
 
 ### Camera Crash
 
-Occasionally, a camera will crash or get disconnected. Pi Scan cannot tell the difference between these two events so it always assume that getting disconnected is a crash. When Pi Scan thinks there has been a crash, it pops up a camera debug screen. It will tell you which camera is disconnected, and the last thing it was trying to do when it happened. Reconnect or power cycle the camera and it should detect that the camera is back online. When the camera is back, you can tap 'Get Debug Log' and it will save the debug log for the most recent crash to your external storage in the debug directory. You can send this debug log and the error message you saw on the debug screen to help at tenrec dot builders.
+Ocasionalmente, una cámara tendrá algún conflicto interno o se desconectará. Pi Scan no puede notar la diferencia entre estos dos eventos, así que siempre asumirá que desconectar la cámara es un conflicto interno. Cuand Pi Scan piensa que ha habido un evento de este tipo, aparecerá una pantalla de debugeo. Este registro dirá qué cámara se desconectó, y la última actividad que estaba tratando de ejecutar cuando falló. En ese caso, se reconecta o se vuelve a encender la cámara, y el proceso detectará que la cámara está de vuelta conectada. Cuando la cámara está de vuelta, se puede apretar el botón de "obtener el registro de error" (Get Debug Log) y salvará el registro de debugeo para el fallo más reciento al dispositivo externo de almacenamiento, dentro del directorio de [debug]. Se puede enviar este registro de debug con el mensaje de error que apareció en la pantalla de debug a help at tenrec dot builders.
 
-Once all cameras are connected again, you can tap 'Ok' to get back to scanning. You will need to go through the 'refocus' screen again first to make sure that the focus is set properly.
+Una vez que las cámaras están conectadas de nuevo, se puede apretar 'Ok' para volver a la digitalización. Será necesario pasar por la pantalla de reenfoque (refocus) nuevamente para asegurarse que el foco está configurado correctamente.
 
 ### Pi Scan Crash
 
-Hopefully you will never see Pi Scan itself crashe, but if you do there is a special crash debug page which shows what happened. Send a photograph of this page to help at tenrec dot builders so it can get fixed.
+Con algo de suerte, nunca se verá una situación de Pi Scan en sí mismo falla, pero si esto sucede, hay una página especial de [debug] que muestra qué sucedió exactamente. Se puede tomar una fotografía de esta pantalla y enviarla a help at tenrec dot builders para reparar el fallo.
 
-### Error Log
+### Registro de error
 
-An error log of every camera failure and crash is saved to your removable storage. This means that even if you tap Ok quickly and miss the message, you can still go back and see the details later. If you are getting persistent failures or problems, it is worth sending this error log to help at tenrec dot builders.
+Un registro de error es almacenado en el dispositivo externo de almacenamiento de cada fallo de la cámara. Esto quiere decir que incluso si se aprieta el botón de 'ok' rápidamente y se pierde el mensaje, aún así se puede volver atrás y recuperarlo. Si se están teniendo problemas o fallas persistentes, vale la pena enviar este registro de errores a help at tenrec dot builders para buscar una solución.
 
-### Rebooting
+### Reinicio del sistema
 
-Always rememeber that you cannot corrupt Pi Scan by rebooting so if there are ever any problems you cannot resolve or the system stops responding completely, you can always just unplug and replug the Raspberry Pi to get back to scanning. The only danger is that your external storage will not have been unmounted cleanly so if you do have to pull the power and reboot be sure to check the scans you have already made to make sure they are all there and that you can open them normally. 
+Es bueno recordar siempre que Pi Scan no se daña por reiniciar la Raspberry. Por lo tanto, si hay algún problema o el sistema deja de responder, siempre se puede desconectar y reconectar la Raspberry Pi y luego volver a la digitalización del libro. Si se hace esto, será necesario chequear dos veces para asegurarse que las digitalizaciones que se hayan guardado en el dispositivo externo de almacenamiento estén bien porque el dispositivo no ha sido desmontado correctamente.
 
-# Version Notes
+# Luego de la captura
 
-- 1.0 -- Added shutter speed adjustment, support for trigger via GPIO pins, full keyboard support, touch screen support, an upgrade mechanism, beep on error, focus when zooming, many crashes, and more.
-- 0.7 -- Added page numbers during capture. Fixed ISO and shutter speed settings. Attempt to fix camera crashes when entering alt mode. Add Pi Scan crash detection for preview and camera threads.
-- 0.6 -- Fixed preview rotation. Images were being shown upside down.
-- 0.5 -- Fixed page numbering issues. Added zoom adjustment UI.
-- 0.4 -- Detect when the /debug and /images directories fail to get created and note the problem in the storage screen.
-- 0.3 -- Add more crash detection and a screen which displays the error in case of unexpected exceptions
-- 0.2 -- Fix issues with spaces in path names and when writing error logs.
-- 0.1 -- Initial release
+Pi Scan solo hace una parte de todo el flujo de trabajo de la digitalización: gestiona la captura. Luego de utilizar Pi Scan, el resultado final será una tarjeta de memoria o un dispositivo externo de almacenamiento (lo que sea que se haya utilizado) lleno de archivos JPEG nombrados consecutivamente. Convertir estos archivos en un e-book se consigue mediante un proceso llamado post-proceso. Hay diversos tipos de software que pueden ayudar al usuario a hacer esta tarea. Una buena herramienta de software libre para realizar este trabajo es el ScanTailor.
+
+# Notas de cada versión
+
+- 1.0 -- Agregado el ajuste de tiempo de exposición, soporte para el disparador vía GPIO, soporte completo para teclado, soporte para pantalla táctil, un mecanismo de actualización, ejecución de un sonido para el error, gestión del foco en paralelo con el zoom, fallas diversas, y más. 
+- 0.7 -- Agregado la numeración de páginas durante la captura. Arregladas las configuraciones de tiempo de exposición e ISO. Intento de arreglar los conflictos de las cámaras cuando entran en modo alt. Agregadas la detección de conflictos de Pi Scan para la previsualización y camera threads.
+- 0.6 -- Arreglada la rotación en el modo previsualización. Las imágenes se mostraban dadas vueltas.
+- 0.5 -- Arreglados algunos problemas con la numeración de las páginas. Se añadió la interfaz de usuario para ajustar el zoom.
+- 0.4 -- Detecta cuando los directorios /debug e /images no se crean y notifica del problema en la pantalla de almacenamiento.
+- 0.3 -- Se añadió más detección de erorres y una pantalla que muestra el error en caso de que ocurran excepciones inesperadas.
+- 0.2 -- Se arregló un problema con espacios en los nombres de ruta y al escribir los registros de errores.
+- 0.1 -- Lanzamiento inicial.
